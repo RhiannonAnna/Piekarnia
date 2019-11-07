@@ -5,10 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
+import { NaviComponent } from './navi/navi.component';
+import { ProductListComponent } from './pages/products/product-list.component';
+import { ProductDetailComponent } from './pages/products/product-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NaviComponent,
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
