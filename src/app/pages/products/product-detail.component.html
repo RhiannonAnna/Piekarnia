@@ -1,1 +1,39 @@
-<p>product-detail works!</p>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="id"  [(ngModel)]="product1.id" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+
+<form class="example-form"></form>
+    <mat-form-field class="example-full-width">
+       <textarea matInput placeholder="nazwa"  [(ngModel)]="product1.name" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="typ" [(ngModel)]="product1.type" [ngModelOptions]="{standalone: true}"></textarea>
+</mat-form-field>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="cena" [(ngModel)]="product1.price" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+       <textarea matInput placeholder="waga" [(ngModel)]="product1.weight" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="opis" [(ngModel)]="product1.description" [ngModelOptions]="{standalone: true}"></textarea>
+</mat-form-field>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="ilość" [(ngModel)]="product1.quantity" [ngModelOptions]="{standalone: true}"></textarea>
+</mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)='alertButton()'>Zapisz zmiany</button>
+
+ 
