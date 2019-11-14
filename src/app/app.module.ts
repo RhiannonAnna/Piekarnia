@@ -8,19 +8,21 @@ import { MaterialModule } from './shared/material.module';
 import { NaviComponent } from './navi/navi.component';
 import { ProductListComponent } from './pages/products/product-list.component';
 import { ProductDetailComponent } from './pages/products/product-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
