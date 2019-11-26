@@ -1,39 +1,58 @@
-<form class="example-form">
+<div class="size-content">
+    
+    <form class="example-form">
     <mat-form-field class="example-full-width">
       <textarea matInput placeholder="id"  [(ngModel)]="product1.id" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
+    <mat-error *ngIf="isNotNumberId()">
+      Muszą być cyfry
+  </mat-error>
 
-<form class="example-form"></form>
+
     <mat-form-field class="example-full-width">
-       <textarea matInput placeholder="nazwa"  [(ngModel)]="product1.name" [ngModelOptions]="{standalone: true}"></textarea>
+       <textarea matInput placeholder="nazwa"  [(ngModel)]="product1.name" [ngModelOptions]="{standalone: true}"></textarea>       
     </mat-form-field>
+    <mat-error *ngIf="!validateName()">
+        Muszą być przynajmniej 3 znaki
+    </mat-error>
 
-<form class="example-form">
     <mat-form-field class="example-full-width">
         <textarea matInput placeholder="typ" [(ngModel)]="product1.type" [ngModelOptions]="{standalone: true}"></textarea>
 </mat-form-field>
+<mat-error *ngIf="!validateType()">
+  Muszą być przynajmniej 3 znaki
+</mat-error>
 
-<form class="example-form">
     <mat-form-field class="example-full-width">
       <textarea matInput placeholder="cena" [(ngModel)]="product1.price" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
+    <mat-error *ngIf="isNotNumberPrice()">
+      Muszą być cyfry
+  </mat-error>
 
-<form class="example-form">
     <mat-form-field class="example-full-width">
        <textarea matInput placeholder="waga" [(ngModel)]="product1.weight" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
+    <mat-error *ngIf="isNotNumberWeight()">
+      Muszą być cyfry
+  </mat-error>
 
-<form class="example-form">
     <mat-form-field class="example-full-width">
         <textarea matInput placeholder="opis" [(ngModel)]="product1.description" [ngModelOptions]="{standalone: true}"></textarea>
 </mat-form-field>
+<mat-error *ngIf="!validateDescription()">
+  Muszą być przynajmniej 3 znaki
+</mat-error>
 
-<form class="example-form">
+
     <mat-form-field class="example-full-width">
         <textarea matInput placeholder="ilość" [(ngModel)]="product1.quantity" [ngModelOptions]="{standalone: true}"></textarea>
 </mat-form-field>
+<mat-error *ngIf="isNotNumberQuantity()">
+  Muszą być cyfry
+</mat-error>
   </form>
 
   <button mat-raised-button (click)='alertButton()'>Zapisz zmiany</button>
 
- 
+

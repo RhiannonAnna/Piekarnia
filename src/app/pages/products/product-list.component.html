@@ -1,4 +1,35 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-card>
+ <mat-form-field>
+  <mat-label>Wybierz typ</mat-label>
+  <mat-select  [(ngModel)]="filterType">
+    <mat-option *ngFor="let item of typeList" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMinWeight" placeholder="Filtruj wagę od">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMaxWeight" placeholder="Filtruj wagę do">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMinQuantity" placeholder="Filtruj ilość od">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMaxQuantity" placeholder="Filtruj ilość do">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMinPrice" placeholder="Filtruj cenę od">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterMaxPrice" placeholder="Filtruj cenę do">
+  </mat-form-field>
+  <button mat-raised-button (click)='filterList()'>Filtruj</button>
+  <button mat-raised-button (click)='clearFilters()'>Wyczyść filtry</button>
+</mat-card>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -47,6 +78,6 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
+  </table> 
+
   
