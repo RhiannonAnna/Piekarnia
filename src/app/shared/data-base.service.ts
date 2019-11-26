@@ -14,7 +14,7 @@ export class DataBaseService {
     {id: 5, name: 'Mała zwykła', type: 'Bułka', price: 0.7, weight: 80, description: 'Pszenna bułeczka z charakterystycznym nacięciem przez środek', quantity: 34},
     {id: 6, name: 'Duża zwykła', type: 'Bułka', price: 1.2, weight: 120, description: 'Pszenna bułeczka z charakterystycznym nacięciem przez środek', quantity: 76},
     {id: 7, name: 'Słonecznikowy', type: 'Chleb', price: 3.1, weight: 450, description: 'Bogaty w upiększającą witaminę E chleb pszenno-żytni', quantity: 34},
-    {id: 8, name: 'Wieloziarnisty', type: 'Chleb', price: 2.7, weight: 500, description: 'something', quantity: 23},
+    {id: 8, name: 'Wieloziarnisty', type: 'Chleb', price: 2.7, weight: 500, description: 'Chleb pszenno-żytni z nasionami', quantity: 23},
     {id: 9, name: 'Wiejski duży', type: 'Chleb', price: 4.5, weight: 880, description: 'Tradycyjny chleb na zakwasie', quantity: 98},
     {id: 10, name: 'Wiejski mały', type: 'Chleb', price: 3.3, weight: 450, description: 'Tradycyjny chleb na zakwasie', quantity: 45},
     {id: 11, name: 'Graham', type: 'Chleb', price: 3.7, weight: 400, description: 'Bułka wypieczona w 40% z pełnoziarnistej mąki pszennej graham', quantity: 64},
