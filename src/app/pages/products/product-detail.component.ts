@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { Alert } from 'selenium-webdriver';
+import { ProductService } from './product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,76 +11,97 @@ import { Alert } from 'selenium-webdriver';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product1: Product = new Product();
+  filterType: string = "";
+  typeList: string[] = ['Chleb', 'Bułka'];
+  productToDisplay: Product;
 
-  constructor() { }
+  constructor(private productsService: ProductService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.product1.id = 1;
-    this.product1.name = "";
-    this.product1.type = "bułka";
-    this.product1.price = 0.90;
-    this.product1.weight = 90;
-    this.product1.description = "40% z pełnoziarnistej mąki pszennej graham";
-    this.product1.quantity = 45;
-  }
-
-  alertButton(): void {
-    // alert(JSON.stringify(this.product1))
-    if(this.validateName() && this.validateType() && this.validateDescription() && !this.isNotNumberPrice() && !this.isNotNumberQuantity() && !this.isNotNumberWeight()){
-      alert("Wszystko poprawnie");
-    }else{
-      alert("Nie jest poprawnie");
+    let id = +this.route.snapshot.paramMap.get('id');
+    if (id == 0) {
+      this.productToDisplay = new Product();
+      this.productToDisplay.id = 0;
+    } else {
+      this.productToDisplay = this.getProductById(id);
     }
   }
 
+  alertButton(): void {
+    if (this.validateName() && this.validateType() && this.validateDescription() && !this.isNotNumberPrice() && !this.isNotNumberQuantity() && !this.isNotNumberWeight()) {
+      alert("Wszystko poprawnie");
+    } else {
+      alert("Nie jest poprawnie");
+    }
+  }
+//#region Validation
   validateName(): boolean {
-    if(this.product1.name.length > 3){
+    if (this.productToDisplay.name.length > 3) {
       return true;
     } else {
       return false;
-    } 
+    }
   }
   validateType(): boolean {
-    if(this.product1.type.length > 3){
+    if (this.productToDisplay.type.length > 3) {
       return true;
     } else {
       return false;
-    } 
+    }
   }
   validateDescription(): boolean {
-    if(this.product1.description.length > 3){
+    if (this.productToDisplay.description.length > 3) {
       return true;
     } else {
       return false;
-    } 
+    }
   }
   isNotNumberId(): boolean {
-  if (isNaN(this.product1.id)){
-    return true;
-  } else {
-    return false;
-  } 
-}
-isNotNumberPrice(): boolean {
-  if (isNaN(this.product1.price)){
-    return true;
-  } else {
-    return false;
-  } 
-}
-isNotNumberWeight(): boolean {
-  if (isNaN(this.product1.weight)){
-    return true;
-  } else {
-    return false;
-  } 
-}
-isNotNumberQuantity(): boolean {
-  if (isNaN(this.product1.quantity)){
-    return true;
-  } else {
-    return false;
-  } 
-}
+    if (isNaN(this.productToDisplay.id)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  isNotNumberPrice(): boolean {
+    if (isNaN(this.productToDisplay.price)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  isNotNumberWeight(): boolean {
+    if (isNaN(this.productToDisplay.weight)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  isNotNumberQuantity(): boolean {
+    if (isNaN(this.productToDisplay.quantity)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //#endregion
+
+  updateProduct(): void {
+    this.productsService.updateProduct(this.productToDisplay);
+    this.router.navigate(['/list']);
+  }
+  addProduct(): void {
+    this.productsService.addProduct(this.productToDisplay);
+    this.router.navigate(['/list']);
+  }
+  getProductById(id: number): Product {
+    return this.productsService.getProduct(id);
+  }
+  isNewProduct(): boolean {
+    if (this.productToDisplay.id == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
